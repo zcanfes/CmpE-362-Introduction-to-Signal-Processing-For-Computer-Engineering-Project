@@ -2,12 +2,17 @@
 
 y = reverse(y);
 
-y = amp_boost(y, fs, 20);
+y = amp_boost(y, fs, 3);
 
-y = sound_surround(modulyated_wave, fs);
+y = sound_surround(y, fs);
+
+y = bass_boost(y, fs, 20);
 
 
-sound(y, fs)
+play_sound(y, fs, 0.22)
+
+
+pause(6)
 
 audiowrite('.\amplified.wav', y, fs);
 % ---------------
