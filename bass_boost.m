@@ -1,7 +1,7 @@
 
 function modulated_wave = bass_boost(y, fs, bass)
 
-    y = amp_boost(y, fs, 0.25 );
+    y = amp_boost(y, fs, 0.20 );
 
     num_channel = size(y, 2);
     tt = 0: 1 / fs : length(y)/fs - 1/fs;
