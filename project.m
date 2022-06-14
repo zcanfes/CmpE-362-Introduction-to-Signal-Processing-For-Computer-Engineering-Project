@@ -1,10 +1,13 @@
 [y,fs] = audioread('sound-trimmed.mp3');
 
-modulated_wave = amp_boost(y, fs, 20);
+y = reverse(y);
+
+y = amp_boost(y, fs, 20);
+
+y = sound_surround(modulyated_wave, fs);
 
 
+sound(y, fs)
 
-sound(modulated_wave, fs)
-
-audiowrite('.\amplified.wav', modulated_wave, fs);
+audiowrite('.\amplified.wav', y, fs);
 % ---------------
