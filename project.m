@@ -1,18 +1,22 @@
-[y,fs] = audioread('sound-trimmed.mp3');
-
-y = reverse(y);
-
-y = amp_boost(y, fs, 3);
-
-y = sound_surround(y, fs);
-
-y = bass_boost(y, fs, 20);
+clear sound
+[y,fs] = audioread('guitar.wav');
+[t,ft] = audioread('piano_sad.wav');
+[k,fk] = audioread('drum.wav');
 
 
-play_sound(y, fs, 0.22)
+% y = reverse(y);
+
+% y = amp_boost(y, fs, 0.20);
+
+% y = sound_surround(y, fs);
+
+% y = bass_boost(y,fs,15);
+
+y = combine_sounds(y,t,k,fs,ft,fk);
 
 
-pause(6)
 
-audiowrite('.\amplified.wav', y, fs);
+play_sound(y,fs,1);
+
+%audiowrite('.\amplified.wav', y, fs);
 % ---------------

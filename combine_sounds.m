@@ -27,6 +27,14 @@ function combined_wave = combine_sounds(y1, y2, y3, fs1, fs2, fs3)
 
     l = min([l1 l2]);
 
+    base_l = y3_channel_left;
+    base_r = y3_channel_right;
+    for i = 0:l3:l
+        y3_channel_left = cat(2,y3_channel_left,base_l);
+        y3_channel_right = cat(2,y3_channel_right,base_r);
+    end
+    
+
     combined_wave = vertcat(amp_boost(y1_channel_left(1:l), fs1, 3) + y2_channel_left(1:l) + y3_channel_left(1:l), y1_channel_right(1:l) + amp_boost(y2_channel_right(1:l), fs2, 3) + y3_channel_right(1:l));
     combined_wave = combined_wave.';
 end
